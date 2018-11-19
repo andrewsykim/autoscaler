@@ -1,10 +1,10 @@
 all: build
 
-TAG?=dev
+TAG?=dev-16
 FLAGS=
 ENVVAR=
 GOOS?=linux
-REGISTRY?=staging-k8s.gcr.io
+REGISTRY?=andrewsykim
 BASEIMAGE?=k8s.gcr.io/debian-base-amd64:0.3.2
 ifdef BUILD_TAGS
   TAGS_FLAG=--tags ${BUILD_TAGS}
@@ -12,7 +12,7 @@ ifdef BUILD_TAGS
   FOR_PROVIDER=" for ${BUILD_TAGS}"
 else
   TAGS_FLAG=
-  PROVIDER=
+  PROVIDER=-digitalocean
   FOR_PROVIDER=
 endif
 
